@@ -23,7 +23,8 @@ systemctl enable ssh
 systemctl start ssh
 ```
 
-Connect all devices and install the configuration:
+Connect all devices and install the configuration. To connect many usb devices, use an hub with additional
+usb power.
 
 ```bash
 sudo bash install.sh
@@ -37,5 +38,9 @@ bash check.sh
 
 You will now see an ap called DIVERSA_NMEA; connect to it.
 
+
+## Usage
+
+After the system is set up, connect using your device to the new ap. Use 192.168.2.1 ip and port 10110 as TCP source.
 
 
