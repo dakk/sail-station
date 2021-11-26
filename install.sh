@@ -11,8 +11,8 @@ systemctl start stalk_read
 
 echo Installing kplex...
 
-wget http://www.stripydog.com/download/kplex_1.3.4-1_armhf.deb
-dpkg -i ./kplex_1.3.4-1_armhf.deb
+wget http://www.stripydog.com/download/kplex_1.4-1_armhf.deb
+dpkg -i ./kplex_1.4.1-1_armhf.deb
 systemctl enable kplex
 cp kplex.conf /etc/kplex.conf
 systemctl start kplex
