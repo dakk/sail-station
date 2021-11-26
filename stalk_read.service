@@ -1,0 +1,11 @@
+[Unit]
+Description=stalk_read
+
+[Service]
+ExecStart=/usr/bin/python /home/pi/sail-station/stalk_read.py
+Restart=always
+RestartSec=120
+
+[Install]
+WantedBy=multi-user.target
+
