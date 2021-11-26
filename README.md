@@ -41,6 +41,7 @@ You will now see an ap called DIVERSA_NMEA; connect to it.
 
 ## Usage
 
-After the system is set up, connect using your device to the new ap. Use 192.168.2.1 ip and port 10110 as TCP source.
+After the system is set up, connect using your device to the new ap. Use 192.168.2.1 ip and port 10110 as TCP source. 
+The system will also log all nmea data to ```/home/pi/data.nmea```, useful to analyze data at home.
 
 
