@@ -14,7 +14,14 @@ Outputs:
 
 ## Release links
 
-- https://github.com/dakk/sail-station/archive/refs/heads/master.zip
+```
+cd ~
+rm -rf sail-station
+wget https://github.com/dakk/sail-station/archive/refs/heads/master.zip
+unzip master.zip
+mv sail-station-master sail-station
+rm -rf master.zip
+```
 
 ## Install
 
