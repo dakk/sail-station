@@ -21,6 +21,8 @@ wget https://github.com/dakk/sail-station/archive/refs/heads/master.zip
 unzip master.zip
 mv sail-station-master sail-station
 rm -rf master.zip
+cd sail-station
+sudo bash install.sh
 ```
 
 ## Install

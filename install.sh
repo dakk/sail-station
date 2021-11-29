@@ -8,7 +8,7 @@ fi
 
 
 echo Installing pigpio
-apt-get install pigpio
+apt-get install pigpio python3-pigpio
 systemctl enable pigpiod
 systemctl restart pigpiod
 
