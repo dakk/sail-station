@@ -12,6 +12,10 @@ Outputs:
 - Log file
 
 
+## Release links
+
+- https://github.com/dakk/sail-station/archive/refs/heads/master.zip
+
 ## Install
 
 Write lite raspbian image to RPI.
@@ -22,6 +26,8 @@ Enable ssh using a screen and a keyboard:
 systemctl enable ssh
 systemctl start ssh
 ```
+
+or simply create an empty ssh file on boot partition.
 
 Connect all devices and install the configuration. To connect many usb devices, use an hub with additional
 usb power.
