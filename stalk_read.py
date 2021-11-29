@@ -13,6 +13,7 @@ ip = '127.0.0.1' #define ip default localhost 127.0.0.1
 gpio = 19 #define gpio where the seatalk1 (yellow wire) is connected
 
 if __name__ == '__main__':
+    print ("Stalk_read starting...")
     st1read = pigpio.pi()
     try:
         st1read.bb_serial_read_close(gpio) #close if already run
@@ -22,6 +23,7 @@ if __name__ == '__main__':
     data = ""
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:
+        print ("Stalk_read listening")
         while True:
             out = (st1read.bb_serial_read(gpio))
             out0 = out[0]
@@ -49,4 +51,4 @@ if __name__ == '__main__':
                 
     except KeyboardInterrupt:
         st1read.bb_serial_read_close(gpio)
-        print ("exit")
+        print ("Stalk_read exit")
