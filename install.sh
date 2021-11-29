@@ -10,13 +10,13 @@ fi
 echo Installing pigpio
 apt-get install pigpio
 systemctl enable pigpiod
-systemctl start pigpiod
+systemctl restart pigpiod
 
 echo Installing seatalk2nmea...
 cp stalk_read.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable stalk_read
-systemctl start stalk_read
+systemctl restart stalk_read
 
 echo Installing kplex...
 
@@ -27,7 +27,7 @@ wget -O /etc/systemd/system/kplex.service http://stripydog.com/download/kplex.se
 systemctl daemon-reload
 systemctl enable kplex
 cp kplex.conf /etc/kplex.conf
-systemctl start kplex
+systemctl restart kplex
 rm kplex_`echo $KPLEX_VERSION`_armhf.deb
 
 
