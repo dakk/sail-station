@@ -1,4 +1,4 @@
-echo Checking sail-station
+echo Checking sail-station...
 
 # Check gps
 
