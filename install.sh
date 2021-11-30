@@ -32,7 +32,20 @@ rm kplex_`echo $KPLEX_VERSION`_armhf.deb
 
 
 echo Creating AP...
-
+apt install dnsmasq hostapd
+systemctl stop dnsmasq
+systemctl stop hostapd
+mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
+cp wlan/dhcpcd.conf /etc/dhcpcd.conf
+mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
+cp wlan/dnsmasq.conf /etc/dnsmasq.conf
+systemctl start dnsmasq
+cp wlan/hostapd.conf /etc/hostapd/hostapd.conf
+cp wlan/hostapd /etc/default/hostapd
+service dhcpcd restart
+systemctl unmask hostapd
+systemctl enable hostapd
+systemctl start hostapd
 
 
 echo Connect to $(WIFI_AP) wifi network
