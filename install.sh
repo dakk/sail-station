@@ -48,5 +48,5 @@ systemctl enable hostapd
 systemctl start hostapd
 
 
-echo Connect to $(WIFI_AP) wifi network
+echo `echo $WIFI_AP` wifi network is ready
 echo Done.
