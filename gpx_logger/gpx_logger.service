@@ -1,0 +1,11 @@
+[Unit]
+Description=gpx_logger
+
+[Service]
+ExecStart=/usr/bin/python /home/pi/sail-station/gpx_logger/gpx_logger.py
+Restart=always
+RestartSec=120
+
+[Install]
+WantedBy=multi-user.target
+

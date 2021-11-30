@@ -10,6 +10,7 @@ Outputs:
 - TCP
 - UDP broadcast
 - Log file
+- GPX logger
 
 
 ## Release links

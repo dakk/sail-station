@@ -13,10 +13,17 @@ systemctl enable pigpiod
 systemctl restart pigpiod
 
 echo Installing seatalk2nmea...
-cp stalk_read.service /etc/systemd/system/
+cp stalk_read/stalk_read.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable stalk_read
 systemctl restart stalk_read
+
+# echo Installing gpx_logger...
+# mkdir /home/pi/gpx && chmod 777 /home/pi/gpx
+# cp gpx_logger/gpx_logger.service /etc/systemd/system/
+# systemctl daemon-reload
+# systemctl enable gpx_logger
+# systemctl restart gpx_logger
 
 echo Installing kplex...
 
