@@ -9,6 +9,7 @@ fi
 
 echo Installing pigpio
 apt-get install pigpio python3-pigpio
+pip install pynmea2
 systemctl enable pigpiod
 systemctl restart pigpiod
 

@@ -11,7 +11,6 @@
 #
 
 import pigpio
-import pynmea2
 import time
 import socket
 import signal
@@ -23,70 +22,8 @@ gpio = 4  	# Define gpio where the SeaTalk1 (yellow wire) is sensed
 invert = 1      # Define if input signal shall be inverted 0 => not inverted, 1 => Inverted
 pud = 2         # define if using internal RPi pull up/down 0 => No, 1= Pull down, 2=Pull up
 
-
-global angle, speed
-angle = 0
-speed = 0
-
-def process(s):
-    global speed, angle
-    s = s.split(',')[1::]
-    nmea = None 
-    
-    # AWA Corresponding NMEA sentence: MWV
-    if len(s) >= 4 and s[0] == '10' and s[1] == '01':
-        angle = (int('0x'+s[3], 16) + int('0x'+s[2], 16) * 0xff) / 2
-        #print ('awa', angle)
-        #nmea = pynmea2.MWV(True, 'R', angle, 'N', 'A')
-        # Create nmea string mwv for wind angle
-        angle = "{:.1f}".format(angle)
-        nmea = '$IIMWV,%s,R,%s,k,A' % (angle, speed)
-
-    # AWS Corresponding NMEA sentence: MWV
-    elif len(s) >= 4 and s[0] == '11' and s[1] == '01':
-        speed = (int('0x' + s[2], 16) & 0x7f) + int('0x' + s[3][1], 16) / 10
-        #print('aws', speed)
-        #nmea = pynmea2.MWV(True, 'R', speed, 'N', 'A')
-        # Create nmea string mwv for wind speed
-        speed = "{:.1f}".format(speed)
-        nmea = '$IIMWV,%s,R,%s,k,A' % (angle, speed)
-        
-    # DEPTH NMEA sentences: DPT, DBT
-    elif len(s) >= 5 and s[0] == '00' and s[1] == '02':
-        depth = (int('0x'+s[3], 16) + int('0x'+s[4], 16) * 0xff ) / 10 * 0.3048
-        #print ('depth', depth)
-        #nmea = pynmea2.DPT('IN', 'DPT', (str(depth)))
-        
-        # Create nmea string dpt for depth
-        depth = "{:.1f}".format(depth)
-        nmea = '$IIDBT,,f,%s,M,,F' % (depth)
-
-    # Water temp Corresponding NMEA sentence: MTW
-    elif len(s) >= 4 and s[0] == '27' and s[1] == '01':
-        temp = ((int('0x'+s[2], 16) + int('0x'+s[3], 16) * 0xff ) - 100.)/10.
-        #print ('temp', temp)
-        #nmea = pynmea2.MTW(temp, 'celsius')
-
-        # Create nmea string mtw for water temp
-        temp = "{:.1f}".format(temp)
-        #nmea = '$IIMTW,%s,C,%s,C,%s,C' % (temp, temp, temp)
-        #nmea = '$IIMDA,,I,,B,,C,%s,C,,,,C,,T,,M,,N,,M' % (temp)
-        
-    # SOG Corresponding NMEA sentence: VHW
-    elif len(s) >= 4 and s[0] == '20' and s[1] == '01':
-        sog = ((int('0x'+s[2], 16) + int('0x'+s[3], 16) * 0xff ))/10.
-        #print ('sog', sog)
-        #nmea = pynmea2.VHW(sog, 'T', 'M', 'N')
-
-        # Create nmea string vhw for speed over ground
-        #nmea = '$IIVHW,%s,T,M,N,N' % (sog)
-
-    if nmea != None:
-        return str(pynmea2.parse(nmea))
-    else:
-        return s
-
 if __name__ == '__main__':
+
     st1read = pigpio.pi()
 
     try:
@@ -122,8 +59,7 @@ if __name__ == '__main__':
                     else:
                         data = data[0:-1]
                         data = "$STALK,"+data
-                        dd = process(data)
-                        sock.sendto(dd.encode('utf-8'), (ip, port))
+                        sock.sendto(data.encode('utf-8'), (ip, port))
                         print(data)
                         string2 = str(hex(out_data[x]))
                         string2_new = string2[2:]
