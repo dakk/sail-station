@@ -11,7 +11,7 @@
 #
 
 import pigpio
-#import pynmea2
+import pynmea2
 import time
 import socket
 import signal
@@ -82,7 +82,7 @@ def process(s):
         #nmea = '$IIVHW,%s,T,M,N,N' % (sog)
 
     if nmea != None:
-        return nmea #str(pynmea2.parse(nmea))
+        return str(pynmea2.parse(nmea))
     else:
         return s
 
