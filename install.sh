@@ -8,13 +8,13 @@ fi
 
 
 echo Installing pigpio
-apt-get install pigpio python3-pigpio
-pip install pynmea2
+apt-get install pigpio python3-pigpio python3-pip
 systemctl enable pigpiod
 systemctl restart pigpiod
 
 echo Installing seatalk2nmea...
 cp stalk_read/stalk_read.service /etc/systemd/system/
+pip install pynmea2
 systemctl daemon-reload
 systemctl enable stalk_read
 systemctl restart stalk_read
