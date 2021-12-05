@@ -87,6 +87,7 @@ def process(s):
         return s
 
 if __name__ == '__main__':
+    print ('Stalk_read starting...')
     st1read = pigpio.pi()
 
     try:
@@ -102,6 +103,7 @@ if __name__ == '__main__':
     data = ""
 
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    print ('Stalk_read reading')
     try:
         while True:
             out = (st1read.bb_serial_read(gpio))
