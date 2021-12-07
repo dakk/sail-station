@@ -10,7 +10,6 @@ Outputs:
 - TCP
 - UDP broadcast
 - Log file
-- GPX logger
 
 
 ## Release links
@@ -61,3 +60,13 @@ After the system is set up, connect using your device to the new ap using passwo
 The system will also log all nmea data to ```/home/pi/data.nmea```, useful to analyze data at home.
 
 
+## Stalk interface for raspberry
+
+![Schematics]()
+
+## References
+
+- https://andersonsabroad.com/blog/raspberry-pi-marine-computer/step-4-install-kplex-nmea-multiplexer/
+- https://github.com/SignalK/signalk-server/blob/master/Seatalk(GPIO).md
+- https://github.com/marcobergman/seatalk_convert
+- https://pysselilivet.blogspot.com/2020/06/seatalk1-to-nmea-0183-converter-diy.html
