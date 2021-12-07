@@ -1,4 +1,6 @@
 # Raspberry PI sail station
+
+
 Multiplex all boat data to wifi ap.
 
 Inputs:
@@ -62,7 +64,6 @@ The system will also log all nmea data to ```/home/pi/data.nmea```, useful to an
 
 ## Stalk interface for raspberry
 
-![Schematics]()
 
 ## References
 
