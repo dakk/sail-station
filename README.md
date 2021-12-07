@@ -1,9 +1,8 @@
 # Raspberry PI sail station
 
-Multiplex all boat data to wifi access point.
+Multiplex all boat data to wifi access point. (https://www.youtube.com/watch?v=vdmb49YoF0g)
 
 <img src="https://user-images.githubusercontent.com/1060425/144998274-dc84c163-21de-4a79-884c-eac48d8ab764.jpg?s=150" height="250"> | <img src="https://user-images.githubusercontent.com/1060425/144998294-8879c9f1-f3ce-4b34-b867-25683005da76.jpg?s=150" height="250">
-https://www.youtube.com/watch?v=vdmb49YoF0g
 
 Inputs:
 - AIS 
