@@ -1,5 +1,8 @@
 # Raspberry PI sail station
 
+![station](https://user-images.githubusercontent.com/1060425/144998274-dc84c163-21de-4a79-884c-eac48d8ab764.jpg)
+![station2](https://user-images.githubusercontent.com/1060425/144998294-8879c9f1-f3ce-4b34-b867-25683005da76.jpg)
+
 
 Multiplex all boat data to wifi ap.
 
@@ -61,8 +64,12 @@ You will now see an ap called DIVERSA_NMEA; connect to it using password "passwo
 After the system is set up, connect using your device to the new ap using password "password". Use 192.168.3.1 ip and port 10110 as TCP source. 
 The system will also log all nmea data to ```/home/pi/data.nmea```, useful to analyze data at home.
 
+![data](https://user-images.githubusercontent.com/1060425/144998326-00799f41-287e-4f48-927e-8e1be99fad2b.jpg)
+
 
 ## Stalk interface for raspberry
+
+![schematics](https://user-images.githubusercontent.com/1060425/144998349-d8c1aecc-723a-491a-8f82-6e9ede4e8ee1.jpg)
 
 
 ## References
